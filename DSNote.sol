@@ -1,4 +1,4 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.8;
 
 contract DSNote {
     event LogNote(
@@ -6,7 +6,7 @@ contract DSNote {
         address  indexed  guy,
         bytes32  indexed  foo,
         bytes32  indexed  bar,
-	uint	 	  wad,
+	      uint	 	          wad,
         bytes             fax
     ) anonymous;
 

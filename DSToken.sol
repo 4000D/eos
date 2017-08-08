@@ -1,4 +1,4 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.8;
 
 import "./DSTokenBase.sol";
 import "./DSStop.sol";
@@ -15,11 +15,13 @@ contract DSToken is DSTokenBase(0), DSStop {
     function transfer(address dst, uint wad) stoppable note returns (bool) {
         return super.transfer(dst, wad);
     }
+
     function transferFrom(
         address src, address dst, uint wad
     ) stoppable note returns (bool) {
         return super.transferFrom(src, dst, wad);
     }
+
     function approve(address guy, uint wad) stoppable note returns (bool) {
         return super.approve(guy, wad);
     }
@@ -27,6 +29,7 @@ contract DSToken is DSTokenBase(0), DSStop {
     function push(address dst, uint128 wad) returns (bool) {
         return transfer(dst, wad);
     }
+
     function pull(address src, uint128 wad) returns (bool) {
         return transferFrom(src, msg.sender, wad);
     }
@@ -35,6 +38,7 @@ contract DSToken is DSTokenBase(0), DSStop {
         _balances[msg.sender] = add(_balances[msg.sender], wad);
         _supply = add(_supply, wad);
     }
+    
     function burn(uint128 wad) auth stoppable note {
         _balances[msg.sender] = sub(_balances[msg.sender], wad);
         _supply = sub(_supply, wad);

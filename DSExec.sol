@@ -1,4 +1,4 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.8;
 
 contract DSExec {
     function tryExec( address target, bytes calldata, uint value)
